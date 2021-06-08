@@ -1,10 +1,13 @@
 import React from "react";
+import BabyNamesData from "./data/babyNamesData.json";
+
+//Import Components
+import BabyNamesList from "./components/BabyNamesList";
 
 const App = () => {
-
   return (
-    <div>
-      <h1>Shalom</h1>
+    <div className="container">
+     <BabyNamesList nameList={BabyNamesData} />
     </div>
   );
 };
