@@ -1,19 +1,11 @@
 import React from "react";
 
-const BabyNamesList = ({ nameList, search, addFavourite }) => {
+const BabyNamesList = ({ list, addFavourite }) => {
+  
   return (
     <ul>
-      {nameList
+      {list
         .sort((a, b) => (a.name < b.name ? -1 : 1))
-        .filter((value) => {
-          let result;
-          if (search === "") {
-            result = value;
-          } else if (value.name.toLowerCase().includes(search.toLowerCase())) {
-            result = value;
-          }
-          return result;
-        })
         .map((baby) => (
           <li className={baby.sex} key={baby.id}>
             <button onClick={() => addFavourite(baby.id)}>{baby.name}</button>
@@ -25,3 +17,12 @@ const BabyNamesList = ({ nameList, search, addFavourite }) => {
 
 export default BabyNamesList;
 
+// .filter((value) => {
+//   let result;
+//   if (search === "") {
+//     result = value;
+//   } else if (value.name.toLowerCase().includes(search.toLowerCase())) {
+//     result = value;
+//   }
+//   return result;
+// })

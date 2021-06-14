@@ -1,19 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import BabyNamesList from "./BabyNamesList";
 
+const Favourites = ({ nameList, search }) => {
+  const [favourites, setFavourites] = useState([]);
 
-const Favourites = ({ nameList, favourites }) => {
+  const filterNames = nameList
+    .filter((baby) => baby.name.toLowerCase().includes(search.toLowerCase()))
+    .filter((baby) => !favourites.includes(baby.id));
 
- const addNames = favourites.map((id)=> {
-     const { name, sex } = nameList[id]
-     return (
-         <li key={name} className={sex}>{name}</li>
-     )
- })
-  return (
-    <div>
-      <h3>Favourites List:</h3><span><ul>{addNames}</ul></span>
-    </div>
-  );
+  const addToFavourites = (id) => setFavourites([...favourites, id]);
+
+  return <BabyNamesList list={filterNames} addFavourite={addToFavourites} />;
 };
 
 export default Favourites;
@@ -41,3 +38,14 @@ export default Favourites;
 //   };
 
 //   const containNames = favourites.length > 0;
+// const addNames = favourites.map((id)=> {
+//   const { name, sex } = nameList[id]
+//   return (
+//       <li key={name} className={sex}>{name}</li>
+//   )
+// })
+// return (
+//  <div>
+//    <h3>Favourites List:</h3><span><ul>{addNames}</ul></span>
+//  </div>
+// );
