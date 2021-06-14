@@ -4,6 +4,7 @@ import BabyNamesData from "./data/babyNamesData.json";
 //Import Components
 import SearchBar from "./components/SearchBar";
 import Favourites from "./components/Favourites";
+import FavList from "./components/FavouriteList";
 
 const App = () => {
   const [search, setSearch] = useState("");
@@ -20,6 +21,7 @@ const App = () => {
   return (
     <div className="container">
       <SearchBar nameList={BabyNamesData} search={search} handleChange={handleChange} />
+      <FavList nameList={BabyNamesData} />
       <Favourites nameList={BabyNamesData} search={search} />
     </div>
   );
