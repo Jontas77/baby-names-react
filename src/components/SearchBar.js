@@ -2,14 +2,14 @@ import React from "react";
 
 const SearchBar = ({ search, handleChange }) => {
   return (
-    <header>
+    <div>
       <input
         type="text"
         placeholder="Search Names..."
         value={search}
         onChange={handleChange}
       />
-    </header>
+    </div>
   );
 };
 

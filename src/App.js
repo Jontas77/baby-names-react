@@ -3,6 +3,7 @@ import BabyNamesData from "./data/babyNamesData.json";
 
 //Import Components
 import SearchBar from "./components/SearchBar";
+import FilterGender from "./components/FilterGender";
 import Favourites from "./components/Favourites";
 import FavList from "./components/FavouriteList";
 
@@ -22,23 +23,26 @@ const App = () => {
 
   return (
     <div className="container">
-      <SearchBar
-        nameList={BabyNamesData}
-        search={search}
-        handleChange={handleChange}
-      />
+      <header>
+        <SearchBar
+          nameList={BabyNamesData}
+          search={search}
+          handleChange={handleChange}
+        />
+        <FilterGender nameList={BabyNamesData} />
+      </header>
       <main>
-      <FavList
-        nameList={BabyNamesData}
-        favourites={favourites}
-        removeFromList={removeFromList}
-      />
-      <Favourites
-        nameList={BabyNamesData}
-        search={search}
-        favourites={favourites}
-        addToFavourites={addToFavourites}
-      />
+        <FavList
+          nameList={BabyNamesData}
+          favourites={favourites}
+          removeFromList={removeFromList}
+        />
+        <Favourites
+          nameList={BabyNamesData}
+          search={search}
+          favourites={favourites}
+          addToFavourites={addToFavourites}
+        />
       </main>
     </div>
   );

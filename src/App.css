@@ -19,7 +19,6 @@ input[type="text"] {
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
   padding: 0 2rem;
-  width: calc(100% - 2rem);
   height: 4rem;
   transition: box-shadow 0.1s;
 }
@@ -27,6 +26,66 @@ input[type="text"] {
 input[type="text"]:focus {
   outline: none;
   box-shadow: inset 0 0 1px 3px rgb(154, 196, 222);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.all-names {
+  background: #a0cfee;
+  color: #16527a;
+}
+
+.all-names:hover {
+  background: #ee4f05;
+}
+
+.all-names:focus {
+  background: #ee4f05;
+  outline: none;
+  border: none;
+}
+
+.boy {
+  background: #b7ecca;
+  color: #16527a;
+}
+
+.girl {
+  background: #fda7a7;
+  color: #f92b54;
+}
+
+.boy:hover {
+  background: #8bc4ea;
+}
+
+.boy:focus {
+  background: #8bc4ea;
+  outline: none;
+  border: none;
+}
+
+.girl:hover {
+  background: #ffadd9;
+}
+
+.girl:focus {
+  background: #ffadd9;
+  outline: none;
+  border: none;
+}
+
+.gender button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 /* NameList*/
