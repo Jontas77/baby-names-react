@@ -8,24 +8,40 @@ import FavList from "./components/FavouriteList";
 
 const App = () => {
   const [search, setSearch] = useState("");
-  
+  const [favourites, setFavourites] = useState([]);
+
   const handleChange = (e) => {
-    setSearch(e.target.value); 
+    setSearch(e.target.value);
   };
-  
-  // const addFavourite = (id) => {
-  //   const list = favourites.concat([id])
-  //   setFavourites(list)
-  // }
+
+  const addToFavourites = (id) => setFavourites([...favourites, id]);
+
+  const removeFromList = (id) => {
+    setFavourites(favourites.filter((babyId) => id !== babyId));
+  };
 
   return (
     <div className="container">
-      <SearchBar nameList={BabyNamesData} search={search} handleChange={handleChange} />
-      <FavList nameList={BabyNamesData} />
-      <Favourites nameList={BabyNamesData} search={search} />
+      <SearchBar
+        nameList={BabyNamesData}
+        search={search}
+        handleChange={handleChange}
+      />
+      <main>
+      <FavList
+        nameList={BabyNamesData}
+        favourites={favourites}
+        removeFromList={removeFromList}
+      />
+      <Favourites
+        nameList={BabyNamesData}
+        search={search}
+        favourites={favourites}
+        addToFavourites={addToFavourites}
+      />
+      </main>
     </div>
   );
 };
 
 export default App;
-

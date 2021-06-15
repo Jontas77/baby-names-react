@@ -1,56 +1,106 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .container {
-    width: 1024px;
-    margin: 0 auto;
-    border: 5px solid lightblue;
-    border-radius: 10px;
-    margin-top: 20px;
+  width: 1024px;
+  margin: 0 auto;
+  border: 5px solid lightblue;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/*Search Bar*/
+input[type="text"] {
+  margin: 1rem;
+  background: #fff;
+  font-size: 1.3rem;
+  border: none;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  padding: 0 2rem;
+  width: calc(100% - 2rem);
+  height: 4rem;
+  transition: box-shadow 0.1s;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 0 1px 3px rgb(154, 196, 222);
 }
 
 /* NameList*/
 ul {
-    padding: 0;
-    margin: 3.125rem;
+  padding: 0;
+  margin: 3.125rem;
 }
 
 li {
-    list-style: none;
-    display: inline-block;
-    position: relative;
-    border-radius: 3px;
-    cursor: pointer;
-    margin: 2px;
+  list-style: none;
+  display: inline-block;
+  position: relative;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 2px;
 }
 
 li:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-li.f  {
-    background: #fda7a7;
-    color: #f92b54;
+li.f {
+  background: #fda7a7;
+  color: #f92b54;
 }
 
 li.f:hover {
-    background: #ffadd9;
+  background: #ffadd9;
 }
 
-li.m  {
-    background: #b7ecca;
-    color: #16527a;
+li.m {
+  background: #b7ecca;
+  color: #16527a;
 }
 
 li.m:hover {
-    background: #8bc4ea;
+  background: #8bc4ea;
 }
 
 li > button {
-    border: none;
-    background: transparent;
-    color: inherit;
-    display: block;
-    padding: 0.25rem 0.75rem;
+  border: none;
+  background: transparent;
+  color: inherit;
+  display: block;
+  padding: 0.25rem 0.75rem;
+}
+
+.list li:hover:before {
+  content: "\00D7";
+  position: absolute;
+  top: -0.5rem;
+  right: -0.3rem;
+  width: 1rem;
+  height: 1rem;
+  z-index: 2;
+  text-align: center;
+  line-height: 1;
+  font-size: 0.9rem;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: #ff6347;
+  border: solid 2px #fff;
+  color: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.list h2 {
+  padding: 0;
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin-left: 3.125rem;
+  color: #b3b3b3;
+}
+.list hr {
+  border-bottom: 0;
+  border-top: solid 1px #e6e6e6;
+  margin: 1rem 0;
 }

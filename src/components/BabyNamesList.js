@@ -16,13 +16,3 @@ const BabyNamesList = ({ list, addFavourite }) => {
 };
 
 export default BabyNamesList;
-
-// .filter((value) => {
-//   let result;
-//   if (search === "") {
-//     result = value;
-//   } else if (value.name.toLowerCase().includes(search.toLowerCase())) {
-//     result = value;
-//   }
-//   return result;
-// })
