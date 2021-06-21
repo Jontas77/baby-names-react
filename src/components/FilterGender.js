@@ -1,15 +1,15 @@
 import React from "react";
 
-const FilterGender = ({ nameList }) => {
-    const handleChange = () => {
-        console.log("Clkick")
-    }
+
+const FilterGender = ({ filterGender }) => {
   return (
+    <>
     <div className="gender">
-      <button className="all-names" onClick={() => handleChange}>All Names</button>
-      <button className="boy">Boy Names</button>
-      <button className="girl">Girl Names</button>
+      <button className="all-names" onClick={filterGender}>All Names</button>
+      <button className="boy" onChange={filterGender}>Boy Names</button>
+      <button className="girl" onChange={filterGender}>Girl Names</button>
     </div>
+    </>
   );
 };
 

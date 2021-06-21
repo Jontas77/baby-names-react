@@ -10,6 +10,7 @@ import FavList from "./components/FavouriteList";
 const App = () => {
   const [search, setSearch] = useState("");
   const [favourites, setFavourites] = useState([]);
+  
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -21,6 +22,7 @@ const App = () => {
     setFavourites(favourites.filter((babyId) => id !== babyId));
   };
 
+  
   return (
     <div className="container">
       <header>
@@ -29,7 +31,7 @@ const App = () => {
           search={search}
           handleChange={handleChange}
         />
-        <FilterGender nameList={BabyNamesData} />
+        <FilterGender />
       </header>
       <main>
         <FavList
