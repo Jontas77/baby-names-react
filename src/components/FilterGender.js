@@ -1,48 +1,42 @@
-import React, { useState } from "react";
-import BabyNamesList from "./BabyNamesList";
+import React from "react";
 
-const FilterGender = ({ filterGender, search, nameList }) => {
-  const [gender, setGender] = useState([]);
-
-  const boyNames = nameList.filter((baby) => {
-    if (baby.sex === "m") {
-      return baby.name.toLowerCase().includes(search.toLowerCase());
-    } 
-  });
-
-  const toggleMale = () => {
-    setGender(boyNames);
-  };
-
-  const girlNames = nameList.filter((baby) => {
-    if (baby.sex === "f") {
-      return baby.name.toLowerCase().includes(search.toLowerCase());
-    } 
-  });
-
-  const toggleFemale = () => {
-    setGender(girlNames);
-  };
+const FilterGender = ({ toggleGender }) => {
 
   return (
     <>
       <div className="gender">
-        <button className="all-names" onClick={filterGender}>
+        <button value="All" className="all-names" onClick={toggleGender}>
           All Names
         </button>
-        <button className="boy" onClick={toggleMale}>
+        <button value="m" className="boy" onClick={toggleGender}>
           Boy Names
         </button>
-        <button className="girl" onClick={toggleFemale}>
+        <button value="f" className="girl" onClick={toggleGender}>
           Girl Names
         </button>
       </div>
-      <BabyNamesList list={gender} addFavourite={() => { 
-        toggleMale()
-        toggleFemale()
-      }} />
     </>
   );
 };
 
 export default FilterGender;
+
+ // const boyNames = nameList.filter((baby) => {
+  //   if (baby.sex === "m") {
+  //     return baby.name.toLowerCase().includes(search.toLowerCase());
+  //   } 
+  // });
+
+  // const toggleMale = () => {
+  //   setGender(boyNames);
+  // };
+
+  // const girlNames = nameList.filter((baby) => {
+  //   if (baby.sex === "f") {
+  //     return baby.name.toLowerCase().includes(search.toLowerCase());
+  //   } 
+  // });
+
+  // const toggleFemale = () => {
+  //   setGender(girlNames);
+  // };
