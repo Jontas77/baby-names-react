@@ -1,8 +1,8 @@
 import React from "react";
 import BabyNamesList from "./BabyNamesList";
 
-const Favourites = ({ nameList, search, favourites, addToFavourites}) => {
-  
+const Favourites = ({ list, nameList, search, favourites, addToFavourites, toggleGender}) => {
+
 const filterNames = nameList
 .filter((baby) => baby.name.toLowerCase().includes(search.toLowerCase()))
 .filter((baby) => !favourites.includes(baby.id));

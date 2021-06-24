@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BabyNamesData from "./data/babyNamesData.json";
 
 //Import Components
 import SearchBar from "./components/SearchBar";
 import FilterGender from "./components/FilterGender";
-import Favourites from "./components/Favourites";
 import FavList from "./components/FavouriteList";
 import NamePage from "./components/NamePage";
 
 const App = () => {
+  const [list, setList] = useState([]);
   const [search, setSearch] = useState("");
   const [favourites, setFavourites] = useState([]);
   const [gender, setGender] = useState([]);
 
+  useEffect(() => {
+    setList(BabyNamesData);
+  }, [list]);
+  
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
@@ -26,40 +30,48 @@ const App = () => {
   const toggleGender = (e) => {
     let result;
     if (e.target.value === "All") {
-      result = BabyNamesData;
+      result = list;
     } else {
-      result = BabyNamesData.filter((item) => item.sex === e.target.value);
+      result = list.filter((item) => item.sex === e.target.value);
     }
     setGender(result);
   };
+
 
   return (
     <div className="container">
       <header>
         <SearchBar
-          nameList={BabyNamesData}
+          nameList={list}
           search={search}
           handleChange={handleChange}
         />
         <FilterGender
           search={search}
-          nameList={BabyNamesData}
+          nameList={list}
           toggleGender={toggleGender}
         />
       </header>
       <main>
         <FavList
-          nameList={BabyNamesData}
+          nameList={list}
           favourites={favourites}
           removeFromList={removeFromList}
         />
-        <Favourites
+        {/* <Favourites
           nameList={BabyNamesData}
           search={search}
           favourites={favourites}
           addToFavourites={addToFavourites}
+        /> */}
+        <NamePage
+          gender={gender}
+          toggleGender={toggleGender}
+          nameList={list}
+          search={search}
+          favourites={favourites}
+          addToFavourites={addToFavourites}
         />
-        {/* <NamePage gender={gender} toggleGender={toggleGender} /> */}
       </main>
     </div>
   );
