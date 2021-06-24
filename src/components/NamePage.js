@@ -6,15 +6,14 @@ const NamePage = ({ nameList, search, favourites, addToFavourites, gender, toggl
     
     return (
     <>
-  
+ 
     <Favourites
         list={nameList}
         nameList={gender}
         search={search}
         favourites={favourites}
         addToFavourites={addToFavourites}
-        toggleGender={toggleGender}
-      /> 
+      />
       </>
     )
 };

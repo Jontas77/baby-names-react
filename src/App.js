@@ -6,6 +6,7 @@ import SearchBar from "./components/SearchBar";
 import FilterGender from "./components/FilterGender";
 import FavList from "./components/FavouriteList";
 import NamePage from "./components/NamePage";
+import Favourites from "./components/Favourites"
 
 const App = () => {
   const [list, setList] = useState([]);
@@ -15,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     setList(BabyNamesData);
-  }, [list]);
+  }, []);
   
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -58,12 +59,14 @@ const App = () => {
           favourites={favourites}
           removeFromList={removeFromList}
         />
-        {/* <Favourites
+        {gender.length === 0 ? (
+        <Favourites
           nameList={BabyNamesData}
           search={search}
           favourites={favourites}
           addToFavourites={addToFavourites}
-        /> */}
+        />
+        ) : (
         <NamePage
           gender={gender}
           toggleGender={toggleGender}
@@ -72,6 +75,7 @@ const App = () => {
           favourites={favourites}
           addToFavourites={addToFavourites}
         />
+        )}
       </main>
     </div>
   );
